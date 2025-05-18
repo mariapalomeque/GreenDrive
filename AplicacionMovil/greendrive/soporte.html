@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soporte e Información - GreenDrive</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/session.css">
+  <link rel="stylesheet" href="css/soporte.css">
+</head>
+<body>
+    <header>
+  <div class="container header-container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-leaf"></i>
+      Green<span class="eco">Drive</span>
+    </a>
+    <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+    <div class="nav-container">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="buscar_viaje.html">Buscar</a></li>
+          <li><a href="publicar_viaje.html">Publicar un viaje</a></li>
+          <li><a href="suscrpciones.html">Suscripciones</a></li>
+          <li><a href="soporte.html">Soporte</a></li>
+        </ul>
+      </nav>
+      <div class="user-menu">
+  <a href="crear_cuenta.html" class="btn-secondary logged-out-only">Crear cuenta</a>
+  <a href="Inicio.html" class="btn-primary logged-out-only">Iniciar sesión</a>
+</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <section class="support-hero">
+    <div class="support-hero-bg"></div>
+    <div class="support-hero-content">
+      <h1>¿Cómo podemos ayudarte?</h1>
+      <p>Estamos aquí para responder tus preguntas y resolver tus dudas sobre nuestro servicio.</p>
+    </div>
+  </section>
+
+    <section class="support-section container">
+    <div class="support-container">
+      <div class="support-tabs">
+        <div class="support-tab active">Preguntas Frecuentes</div>
+        <div class="support-tab">Contacto</div>
+        <div class="support-tab">Centro de Ayuda</div>
+      </div>
+
+            <div class="faq-container">
+        <div class="faq-item active">
+          <div class="faq-question">
+            ¿Cómo me registro en GreenDrive?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            El registro en GreenDrive es sencillo. Haz clic en el botón "Registrarse" en la parte superior derecha de la página. Completa el formulario con tus datos personales, acepta los términos y condiciones, y verifica tu cuenta a través del correo electrónico que recibirás.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            ¿Cómo publico un viaje?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Una vez que hayas iniciado sesión, dirígete a la sección "Ofrecer Viaje" y completa el formulario con todos los detalles del viaje: origen, destino, fecha, hora, número de plazas disponibles y precio. También puedes añadir información adicional como si permites mascotas o equipaje grande.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            ¿Cómo funciona el sistema de pago?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            GreenDrive utiliza un sistema de pago seguro. Los pasajeros pagan a través de la plataforma con tarjeta de crédito o débito. El dinero se transfiere al conductor 24 horas después de que el viaje haya finalizado, descontando nuestra comisión del servicio.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            ¿Qué hago si necesito cancelar un viaje?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Si eres conductor y necesitas cancelar un viaje, accede a "Mis Viajes" y selecciona la opción de cancelar. Ten en cuenta que las cancelaciones pueden afectar tu puntuación. Si eres pasajero, puedes cancelar desde "Mis Reservas". Las cancelaciones con menos de 24 horas de antelación pueden tener penalizaciones.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            ¿Cómo funciona el sistema de valoraciones?
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Después de cada viaje, tanto conductores como pasajeros pueden valorarse mutuamente con una puntuación de 1 a 5 estrellas y dejar comentarios. Estas valoraciones son públicas y ayudan a construir la confianza en nuestra comunidad.
+          </div>
+        </div>
+      </div>
+
+            <div class="contact-container" style="display:none;">
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p>soporte@greendrive.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Teléfono</h4>
+              <p>+34 623 456 789</p>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Dirección</h4>
+              <p>Calle Salamanca 123, Madrid, España</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-container">
+          <h3 class="mb-4">Envíanos un mensaje</h3>
+          <form id="contactForm">
+            <div id="msg"></div>
+            <div class="form-group"><br>
+              <label for="nombre">Nombre completo</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" class="form-control" id="correo" name="correo" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="asunto">Asunto</label>
+              <select class="form-control" id="asunto" name="asunto">
+                <option value="consulta">Consulta general</option>
+                <option value="problema">Problema técnico</option>
+                <option value="sugerencia">Sugerencia</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+            </div>
+            
+           
+            
+            <button type="submit" class="btn-primary">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
+
+            <div class="help-center" style="display:none;">
+        <h3 class="mb-4">Artículos de ayuda populares</h3>
+        
+        <div class="help-articles">
+          <div class="article-card">
+            <div class="article-img">
+              <img src="img/green.jpeg" alt="Cómo funciona GreenDrive">
+            </div>
+            <div class="article-content">
+              <span class="article-category">Guía básica</span>
+              <h4 class="article-title">Cómo funciona GreenDrive</h4>
+              <p class="article-excerpt">Una guía paso a paso sobre cómo utilizar nuestra plataforma de viajes compartidos.</p>
+              <a href="#" class="article-link">Leer más <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <div class="article-card">
+            <div class="article-img">
+              <img src="img/green2.jpg" alt="Consejos de seguridad">
+            </div>
+            
+          <div class="article-content">
+            <span class="article-category">Seguridad</span>
+            <h4 class="article-title">Consejos de seguridad</h4>
+            <p class="article-excerpt">Aprende cómo viajar seguro con GreenDrive siguiendo nuestras recomendaciones clave.</p>
+            <a href="#" class="article-link">Leer más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-img">
+            <img src="img/green3.png" alt="Cómo publicar viajes atractivos">
+          </div>
+          <div class="article-content">
+            <span class="article-category">Conductores</span>
+            <h4 class="article-title">Cómo publicar viajes atractivos</h4>
+            <p class="article-excerpt">Consejos esenciales para que tus viajes obtengan más reservas y sean exitosos.</p>
+            <a href="#" class="article-link">Leer más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <div class="article-img">
+            <img src="img/green4.jpeg" alt="Política de cancelaciones">
+          </div>
+          <div class="article-content">
+            <span class="article-category">Políticas</span>
+            <h4 class="article-title">Política de cancelaciones</h4>
+            <p class="article-excerpt">Información sobre nuestras políticas para cancelaciones y reembolsos.</p>
+            <a href="#" class="article-link">Leer más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <footer>
+    <div class="container footer-grid">
+      <div class="footer-column">
+        <div class="footer-logo">
+          <i class="fas fa-leaf"></i> GreenDrive
+        </div>
+        <p>Conectando personas para viajar de forma sostenible, económica y segura.</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>GreenDrive</h4>
+        <ul>
+          <li><a href="#">Quiénes somos</a></li>
+          <li><a href="#">Cómo funciona</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Condiciones de uso</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Centro de soporte</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Guías y tutoriales</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Síguenos</h4>
+        <ul>
+          <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 GreenDrive. Todos los derechos reservados.
+    </div>
+  </footer>
+  <script src="js/session.js"></script>
+  <script src="js/soporte.js"></script>
+</body>
+</html>

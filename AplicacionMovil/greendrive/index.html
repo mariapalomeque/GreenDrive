@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenDrive - Viajes ecológicos compartidos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/session.css">
+    <link rel="stylesheet" href="css/index.css">
+    
+</head>
+<body>
+        <header>
+  <div class="container header-container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-leaf"></i>
+      Green<span class="eco">Drive</span>
+    </a>
+    <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+    <div class="nav-container">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="buscar_viaje.html">Buscar</a></li>
+          <li><a href="publicar_viaje.html">Publicar un viaje</a></li>
+          <li><a href="suscrpciones.html">Suscripciones</a></li>
+          <li><a href="soporte.html">Soporte</a></li>
+        </ul>
+      </nav>
+      <div class="user-menu">
+  <a href="crear_cuenta.html" class="btn-secondary logged-out-only">Crear cuenta</a>
+  <a href="Inicio.html" class="btn-primary logged-out-only">Iniciar sesión</a>
+  </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+        <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content container">
+            <h1>Viaja de forma ecológica y económica</h1>
+            <p>Encuentra compañeros de viaje, ahorra en tus trayectos y contribuye a un planeta más sostenible.</p>
+            <a href="buscar_viaje.html" class="btn-primary">¡Busca tu viaje ahora!</a>
+        </div>
+    </section>
+
+        <section id="buscar" class="search-section container">
+        <div class="search-container">
+            <form class="search-form">
+                <div class="form-group">
+                    <label for="origen">Origen</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="origen" placeholder="¿De dónde sales?">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="destino">Destino</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="destino" placeholder="¿A dónde vas?">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="fecha">
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-search"></i> Buscar
+                </button>
+            </form>
+            <div class="popular-destinations">
+                <div class="tag">Madrid → Barcelona</div>
+                <div class="tag">Valencia → Madrid</div>
+                <div class="tag">Sevilla → Málaga</div>
+                <div class="tag">Barcelona → Valencia</div>
+            </div>
+        </div>
+    </section>
+
+        <section class="features-section container">
+        <h2 class="section-title">¿Por qué viajar con GreenDrive?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-car"></i></div>
+                <h3 class="feature-title">Encuentra los mejores viajes</h3>
+                <p>Conectamos a conductores y pasajeros que viajan en la misma dirección. Reserva el asiento que más te convenga.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3 class="feature-title">Viaja seguro y tranquilo</h3>
+                <p>Verificamos perfiles, reseñas y valoraciones para garantizar la máxima seguridad en todos tus viajes.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                <h3 class="feature-title">¡Busca, elige y viaja!</h3>
+                <p>Proceso sencillo y rápido. Encuentra tu viaje ideal, confirma tu reserva y disfruta de la experiencia.</p>
+            </div>
+        </div>
+    </section>
+
+        <section class="container">
+        <div class="advertisement">
+            <h2>Ahorra mientras conduces</h2>
+            <p>Publica tu próximo viaje de ida y vuelta en GreenDrive y empieza a ganar dinero mientras reduces tu huella de carbono.</p>
+            <a href="publicar_viaje.html" class="btn-primary">
+                <i class="fas fa-plus-circle"></i> Publica tu viaje
+            </a>
+        </div>
+    </section>
+
+        <section class="popular-routes container">
+        <h2 class="section-title">Rutas populares</h2>
+        <div class="routes-grid">
+            <button class="route-btn">
+                <i class="fas fa-exchange-alt"></i>
+                Madrid → Valencia
+            </button>
+            <button class="route-btn">
+                <i class="fas fa-exchange-alt"></i>
+                Valencia → Madrid
+            </button>
+            <button class="route-btn">
+                <i class="fas fa-exchange-alt"></i>
+                Madrid → Barcelona
+            </button>
+            <button class="route-btn">
+                <i class="fas fa-exchange-alt"></i>
+                Barcelona → Madrid
+            </button>
+            <button class="route-btn">
+                <i class="fas fa-exchange-alt"></i>
+                Sevilla → Málaga
+            </button>
+        </div>
+    </section>
+
+        <footer>
+        <div class="container footer-grid">
+            <div class="footer-column">
+                <div class="footer
+                <div class="footer-logo">
+                    <i class="fas fa-leaf"></i>
+                    GreenDrive
+                </div>
+                <p>Viajes compartidos para un planeta más sostenible. Conecta, ahorra y disfruta del trayecto.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Compañía</h4>
+                <ul>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Empleo</a></li>
+                    <li><a href="#">Prensa</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Centro de ayuda</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Aviso legal</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Síguenos</h4>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            © 2025 GreenDrive. Todos los derechos reservados.
+        </div>
+    </footer>
+    <script src="js/session.js"></script>
+    <script>
+        // Menú móvil
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navContainer = document.querySelector('.nav-container');
+        const closeMenu = document.querySelector('.close-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navContainer.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            navContainer.classList.remove('active');
+        });
+
+        // Desplazamiento suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
