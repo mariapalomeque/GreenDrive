@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Usuario - GreenDrive</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/session.css">
+  <link rel="stylesheet" href="css/perfil.css">
+</head>
+<body>
+    <header>
+  <div class="container header-container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-leaf"></i>
+      Green<span class="eco">Drive</span>
+    </a>
+    <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+    <div class="nav-container">
+      <nav>
+        <ul class="nav-left">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="buscar_viaje.html">Buscar</a></li>
+          <li><a href="publicar_viaje.html">Publicar un viaje</a></li>
+          <li><a href="suscrpciones.html">Suscripciones</a></li>
+          <li><a href="soporte.html">Soporte</a></li>
+        </ul>
+      </nav>
+      <div class="user-menu">
+              </div>
+      <button class="close-menu"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+</header>
+
+    <main>
+    <div class="container">
+      <h1 class="page-title">Mi perfil</h1>
+      
+      <div class="profile-container">
+                <div class="profile-sidebar">
+          <div class="profile-header">
+            <div class="profile-picture-container" style="position:relative;">
+              <img id="foto-perfil-img" 
+                     src="img/default.png" 
+                     alt="Foto de perfil"
+                     style="width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 2px solid #e5e7eb;">
+                                <input type="file" id="foto-perfil-input" accept="image/*" style="display: none;">
+                <button id="boton-subir-foto" class="profile-edit-photo" type="button"
+                    style="position: absolute; bottom: 8px; right: 8px; background: #22c55e; border-radius: 50%; border: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 4px rgba(0,0,0,0.1); cursor:pointer;">
+                    <i class="fas fa-camera" style="color: #fff;"></i>
+                </button>
+            </div>
+            <h2 class="profile-name">Stephen</h2>
+            <div class="profile-status">
+              <i class="fas fa-seedling"></i> Principiante
+            </div>
+            
+            <div class="profile-level">
+              <div class="level-label">
+                <span>Nivel 1</span>
+                <span>35%</span>
+              </div>
+              <div class="level-progress">
+                <div class="level-progress-bar"></div>
+              </div>
+            </div>
+          </div>
+          
+          <ul class="profile-menu">
+            <li>
+              <a href="#" class="profile-menu-item active">
+                <i class="fas fa-user"></i>
+                <span>Información personal</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+        
+                <div class="profile-content">
+                    <div class="content-card">
+            <div class="content-card-header">
+              <h3 class="content-card-title">Información personal</h3>
+              <button class="btn-secondary">
+                <i class="fas fa-pen"></i> Editar
+              </button>
+            </div>
+            <div class="content-card-body">
+              <div class="personal-info-section">
+                <div class="info-group">
+                  <div class="info-label">Nombre completo</div>
+                  <div class="info-value">Stephen González</div>
+                </div>
+                <div class="info-group">
+                  <div class="info-label">Correo electrónico</div>
+                  <div class="info-value">
+                    <span>joanstephen22@gmail.com</span>
+                    <i class="fas fa-exclamation-circle pending" title="Pendiente de verificar"></i>
+                  </div>
+                </div>
+                <div class="info-group">
+                  <div class="info-label">Teléfono</div>
+                  <div class="info-value">
+                    <span>+34 627 120 384</span>
+                    <i class="fas fa-check-circle verified"
+                    title="Verificado"></i>
+                  </div>
+                </div>
+                <div class="info-group">
+                  <div class="info-label">Fecha de nacimiento</div>
+                  <div class="info-value">12 de enero de 1996</div>
+                </div>
+                <div class="info-group">
+                  <div class="info-label">Ubicación</div>
+                  <div class="info-value">Barcelona, España</div>
+                </div>
+              </div>
+              
+              <div class="bio-section">
+                <div class="info-label">Sobre mí</div>
+                <div class="bio-text">
+                  Apasionado por viajar, explorar lugares nuevos y comprometido con el cuidado del medioambiente.
+                </div>
+              </div>
+            </div>
+          </div>
+
+                    <div class="content-card">
+            <div class="content-card-header">
+              <h3 class="content-card-title">Verificación</h3>
+            </div>
+            <div class="content-card-body verification-section">
+              <div class="verification-item">
+                <div class="verification-icon verified">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="verification-info">
+                  <div class="verification-title">Teléfono</div>
+                  <div class="verification-status">Verificado</div>
+                </div>
+              </div>
+              <div class="verification-item">
+                <div class="verification-icon pending">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="verification-info">
+                  <div class="verification-title">Correo electrónico</div>
+                  <div class="verification-status">Pendiente de verificar</div>
+                </div>
+                <button class="btn-secondary verification-action">Reenviar correo</button>
+              </div>
+            </div>
+          </div>
+
+                    <div class="content-card">
+            <div class="content-card-header">
+              <h3 class="content-card-title">Mis vehículos</h3>
+              <button class="btn-primary">
+                <i class="fas fa-plus"></i> Añadir vehículo
+              </button>
+            </div>
+            <div class="content-card-body">
+              <div class="vehicles-list">
+                <div class="vehicle-card">
+                  <div class="vehicle-image">
+                    <i class="fas fa-car"></i>
+                  </div>
+                  <div class="vehicle-info">
+                    <div class="vehicle-title">
+                      Seat León 2020
+                      <div class="eco-badge">
+                        <i class="fas fa-leaf"></i> Eco
+                      </div>
+                    </div>
+                    <div class="vehicle-details">
+                      <span>Color: Blanco</span>
+                      <span>Matrícula: 1234 ABC</span>
+                    </div>
+                    <div class="vehicle-actions">
+                      <button class="btn-secondary btn-sm">Editar</button>
+                      <button class="btn-secondary btn-sm">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                    <div class="content-card">
+    <div class="content-card-header">
+        <h3 class="content-card-title">Preferencias de viaje</h3>
+        <button class="btn-secondary">
+            <i class="fas fa-pen"></i> Editar
+        </button>
+    </div>
+    <div class="content-card-body">
+        <div class="preferences-section">
+                    </div>
+    </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+    <footer>
+    <div class="container footer-grid">
+        <div class="footer-column">
+            <div class="footer
+            <div class="footer-logo">
+                <i class="fas fa-leaf"></i>
+                GreenDrive
+            </div>
+            <p>Viajes compartidos para un planeta más sostenible. Conecta, ahorra y disfruta del trayecto.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Compañía</h4>
+            <ul>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Empleo</a></li>
+                <li><a href="#">Prensa</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Soporte</h4>
+            <ul>
+                <li><a href="#">Centro de ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Aviso legal</a></li>
+                <li><a href="#">Política de privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Síguenos</h4>
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom container">
+        © 2025 GreenDrive. Todos los derechos reservados.
+    </div>
+</footer>
+<script src="js/session.js"></script>
+<script src="js/foto_perfil.js"></script>
+<script src="js/perfil.js"></script>
+
+</body>
+</html>

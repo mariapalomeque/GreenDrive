@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Viajes - GreenDrive</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/mis_viajes.css">
+</head>
+<body>
+    <header class="header">
+    <a href="#" class="logo">
+      <i class="fas fa-leaf"></i> GreenDrive
+    </a>
+    <button class="btn-primary">Publicar Viaje</button>
+    
+  </header>
+
+  <div class="container">
+    <h1>Mis Viajes</h1>
+    
+    <div id="viajes-container">
+            <div class="loading">Cargando tus viajes...</div>
+    </div>
+    
+        <div id="no-viajes" class="no-trips" style="display: none;">
+      <p>No tienes viajes publicados aún.</p>
+      <a href="publicar_viaje.html" class="btn-primary">Publica tu primer viaje</a>
+    </div>
+  </div>
+
+    <div id="modal-container" class="modal-container">
+        <div id="edit-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Editar Viaje</h2>
+        <form id="edit-form">
+          <input type="hidden" id="edit-viaje-id">
+          <div class="form-group">
+            <label for="edit-origen">Origen</label>
+            <input type="text" id="edit-origen" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-destino">Destino</label>
+            <input type="text" id="edit-destino" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-fecha">Fecha</label>
+            <input type="date" id="edit-fecha" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-hora">Hora</label>
+            <input type="time" id="edit-hora" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-plazas">Plazas disponibles</label>
+            <input type="number" id="edit-plazas" min="1" required>
+          </div>
+          <div class="modal-actions">
+            <button type="button" id="edit-cancel" class="btn-secondary">Cancelar</button>
+            <button type="submit" id="edit-save" class="btn-primary">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+        <div id="confirm-cancel-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div class="modal-icon">
+          <i class="fas fa-exclamation-triangle" style="color: #f59e0b;"></i>
+        </div>
+        <h2>Cancelar Viaje</h2>
+        <p>¿Estás seguro de que deseas cancelar este viaje? Esta acción no se puede deshacer.</p>
+        <div class="modal-actions">
+          <button id="cancel-no" class="btn-secondary">No, volver</button>
+          <button id="cancel-yes" class="btn-danger">Sí, cancelar viaje</button>
+        </div>
+      </div>
+    </div>
+    
+        <div id="success-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div class="modal-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 id="success-title">Operación exitosa</h2>
+        <p id="success-message">La operación se ha completado con éxito.</p>
+        <div class="modal-actions">
+          <button id="success-ok" class="btn-primary">Aceptar</button>
+        </div>
+      </div>
+    </div>
+    
+        <div id="error-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div class="modal-icon">
+          <i class="fas fa-exclamation-circle" style="color: #ef4444;"></i>
+        </div>
+        <h2>Error</h2>
+        <p id="error-message">Ha ocurrido un error. Inténtalo de nuevo.</p>
+        <div class="modal-actions">
+          <button id="error-ok" class="btn-primary">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <footer>
+    <div class="container footer-grid">
+        <div class="footer-column">
+            <div class="footer
+            <div class="footer-logo">
+                <i class="fas fa-leaf"></i>
+                GreenDrive
+            </div>
+            <p>Viajes compartidos para un planeta más sostenible. Conecta, ahorra y disfruta del trayecto.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Compañía</h4>
+            <ul>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Empleo</a></li>
+                <li><a href="#">Prensa</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Soporte</h4>
+            <ul>
+                <li><a href="#">Centro de ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Aviso legal</a></li>
+                <li><a href="#">Política de privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Síguenos</h4>
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom container">
+        © 2025 GreenDrive. Todos los derechos reservados.
+    </div>
+</footer>
+  <script src="js/session.js"></script>
+  <script src="js/mis_viajes.js"></script>
+</body>
+</html>

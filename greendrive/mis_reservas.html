@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Reservas - GreenDrive</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/session.css">
+  <link rel="stylesheet" href="css/mis_reservas.css">
+</head>
+<body>
+    <header>
+  <div class="container header-container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-leaf"></i>
+      Green<span class="eco">Drive</span>
+    </a>
+    <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+    <div class="nav-container">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="buscar_viaje.html">Buscar</a></li>
+          <li><a href="publicar_viaje.html">Publicar un viaje</a></li>
+          <li><a href="suscrpciones.html">Suscripciones</a></li>
+          <li><a href="soporte.html">Soporte</a></li>
+        </ul>
+      </nav>
+      <div class="user-menu">
+        <a href="crear_cuenta.html" class="btn-secondary logged-out-only">Crear cuenta</a>
+        <a href="Inicio.html" class="btn-primary logged-out-only">Iniciar sesión</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <section class="hero-small">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Mis Reservas</h1>
+      <p>Gestiona todos tus viajes reservados en un solo lugar</p>
+    </div>
+  </section>
+
+    <section class="reservations-section container">
+    <div class="reservations-tabs">
+      <div class="tab active">Todos</div>
+    </div>
+    
+    <div id="reservas-container">
+          </div>
+    
+        <div id="no-reservas" class="empty-state" style="display: none;">
+      <div class="empty-state-icon">
+        <i class="fas fa-route"></i>
+      </div>
+      <h3>No tienes reservas activas</h3>
+      <p>Parece que aún no has reservado ningún viaje. Explora las opciones disponibles y comienza a disfrutar de viajes compartidos más económicos y sostenibles.</p>
+      <a href="buscar_viaje.html" class="btn-primary">
+        <i class="fas fa-search"></i> Buscar Viajes
+      </a>
+    </div>
+    
+        <div id="loading-state" class="loading-state" style="display: none;">
+      <div class="loading-spinner"></div>
+      <p>Cargando tus reservas...</p>
+    </div>
+    
+        <div id="error-message" class="error-message" style="display: none;">
+      <i class="fas fa-exclamation-circle"></i>
+      <div>
+        <h4>Ha ocurrido un error</h4>
+        <p>No se pudieron cargar tus reservas. Por favor, intenta de nuevo más tarde.</p>
+      </div>
+    </div>
+  </section>
+
+    <footer>
+    <div class="container footer-grid">
+        <div class="footer-column">
+            <div class="footer
+            <div class="footer-logo">
+                <i class="fas fa-leaf"></i>
+                GreenDrive
+            </div>
+            <p>Viajes compartidos para un planeta más sostenible. Conecta, ahorra y disfruta del trayecto.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Compañía</h4>
+            <ul>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Empleo</a></li>
+                <li><a href="#">Prensa</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Soporte</h4>
+            <ul>
+                <li><a href="#">Centro de ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Aviso legal</a></li>
+                <li><a href="#">Política de privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Síguenos</h4>
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom container">
+        © 2025 GreenDrive. Todos los derechos reservados.
+    </div>
+</footer>
+  <script src="js/session.js"></script>
+  <script src="js/mis_reservas.js"></script>
+  </script>
+</body>
+</html>
