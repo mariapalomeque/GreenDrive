@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suscripciones - GreenDrive</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/session.css">
+  <link rel="stylesheet" href="css/suscripciones.css">
+</head>
+<body>
+  
+  <header>
+  <div class="container header-container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-leaf"></i>
+      Green<span class="eco">Drive</span>
+    </a>
+    <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+    <div class="nav-container">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="buscar_viaje.html">Buscar</a></li>
+          <li><a href="publicar_viaje.html">Publicar un viaje</a></li>
+          <li><a href="suscrpciones.html">Suscripciones</a></li>
+          <li><a href="soporte.html">Soporte</a></li>
+        </ul>
+      </nav>
+      <div class="user-menu">
+  <a href="crear_cuenta.html" class="btn-secondary logged-out-only">Crear cuenta</a>
+  <a href="Inicio.html" class="btn-primary logged-out-only">Iniciar sesión</a>
+</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+  
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Planes de Suscripción</h1>
+      <p>Disfruta de viajes sin comisiones y beneficios exclusivos con nuestros planes de suscripción.</p>
+    </div>
+  </section>
+
+  
+  <section class="pricing-section container">
+    <div class="pricing-headline">
+      <h2>Elige el plan perfecto para ti</h2>
+      <p>Nuestros planes ofrecen diferentes beneficios para adaptarse a tus necesidades de viaje.</p>
+    </div>
+    
+    <div class="pricing-toggle">
+      <span class="toggle-label active">Mensual</span>
+      <div class="toggle-switch"></div>
+      <span class="toggle-label">Anual <span class="price-save">(Ahorra 25%)</span></span>
+    </div>
+    
+    <div class="user-subscription-info" id="user-subscription-info" style="display: none;">
+  <div class="subscription-banner">
+    <div class="subscription-details">
+      <h3>Tu suscripción activa</h3>
+      <div class="subscription-plan" id="active-plan-name">Plan Pro</div>
+      <div class="subscription-expiry">Fecha de renovación: <span id="subscription-expiry-date">18/5/2025</span></div>
+    </div>
+    <button class="btn-danger" id="btn-cancel-subscription">
+      <i class="fas fa-times-circle"></i> Cancelar suscripción
+    </button>
+  </div>
+</div>
+
+    <div class="plans-grid">
+      
+    <div class="plan-card" data-plan="basico">
+    <div class="plan-name">Básico</div>
+    <div class="plan-price">
+        <div class="price-value"><span class="currency">€</span>12<span>.99</span></div>
+        <div class="price-period">por mes</div>
+    </div>
+    <ul class="plan-features">
+        <li><i class="fas fa-check"></i>Sin comisiones por viaje</li>
+        <li><i class="fas fa-check"></i>Acceso limitado a promociones</li>
+        <li class="not-included"><i class="fas fa-times"></i>Soporte prioritario</li>
+        <li class="not-included"><i class="fas fa-times"></i>Cancelaciones flexibles</li>
+    </ul>
+    <button class="btn-primary-large">Suscribirme</button>
+</div>
+
+      
+     <div class="plan-card popular" data-plan="pro">
+    <div class="popular-tag">Popular</div>
+    <div class="plan-name">Pro</div>
+    <div class="plan-price">
+        <div class="price-value"><span class="currency">€</span>19<span>.99</span></div>
+        <div class="price-period">por mes</div>
+    </div>
+    <ul class="plan-features">
+        <li><i class="fas fa-check"></i>Sin comisiones por viaje</li>
+        <li><i class="fas fa-check"></i>Acceso completo a promociones</li>
+        <li><i class="fas fa-check"></i>Soporte prioritario</li>
+        <li class="not-included"><i class="fas fa-times"></i>Cancelaciones flexibles</li>
+    </ul>
+    <button class="btn-primary-large pulse">Suscribirme</button>
+</div>
+
+      
+      <div class="plan-card" data-plan="premium">
+    <div class="plan-name">Premium</div>
+    <div class="plan-price">
+        <div class="price-value"><span class="currency">€</span>29<span>.99</span></div>
+        <div class="price-period">por mes</div>
+    </div>
+    <ul class="plan-features">
+        <li><i class="fas fa-check"></i>Sin comisiones por viaje</li>
+        <li><i class="fas fa-check"></i>Acceso completo a promociones</li>
+        <li><i class="fas fa-check"></i>Soporte prioritario 24/7</li>
+        <li><i class="fas fa-check"></i>Cancelaciones flexibles</li>
+    </ul>
+    <button class="btn-primary-large">Suscribirme</button>
+</div>
+    </div>
+  </section>
+
+  
+  <section class="compare-section">
+    <div class="container">
+      <div class="compare-headline">
+        <h2>Compara nuestros planes</h2>
+        <p>Encuentra fácilmente las diferencias y elige el plan que más se adapte a tus necesidades.</p>
+      </div>
+      <div class="compare-table-container">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Características</th>
+              <th>Básico</th>
+              <th>Pro</th>
+              <th>Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sin comisiones</td>
+              <td><i class="fas fa-check compare-check"></i></td>
+              <td><i class="fas fa-check compare-check"></i></td>
+              <td><i class="fas fa-check compare-check"></i></td>
+            </tr>
+            <tr>
+              <td>Promociones exclusivas</td>
+              <td><i class="fas fa-times compare-times"></i></td>
+              <td><i class="fas fa-check compare-check"></i></td>
+              <td><i class="fas fa-check compare-check"></i></td>
+            </tr>
+            <tr>
+              <td>Soporte prioritario</td>
+              <td><i class="fas fa-times compare-times"></i></td>
+              <td><i class="fas fa-check compare-check"></i></td>
+              <td><i class="fas fa-check compare-check"></i></td>
+            </tr>
+            <tr>
+              <td>Cancelaciones flexibles</td>
+              <td><i class="fas fa-times compare-times"></i></td>
+              <td><i class="fas fa-times compare-times"></i></td>
+              <td><i class="fas fa-check compare-check"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+ 
+  
+  <footer>
+    <div class="container footer-grid">
+        <div class="footer-column">
+            <div class="footer
+            <div class="footer-logo">
+                <i class="fas fa-leaf"></i>
+                GreenDrive
+            </div>
+            <p>Viajes compartidos para un planeta más sostenible. Conecta, ahorra y disfruta del trayecto.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Compañía</h4>
+            <ul>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Empleo</a></li>
+                <li><a href="#">Prensa</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Soporte</h4>
+            <ul>
+                <li><a href="#">Centro de ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Aviso legal</a></li>
+                <li><a href="#">Política de privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Síguenos</h4>
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom container">
+        © 2025 GreenDrive. Todos los derechos reservados.
+    </div>
+</footer>
+<script src="js/session.js"></script>
+<script src="js/suscripciones.js"></script>
+  <script>
+    const toggleSwitch = document.querySelector('.toggle-switch');
+    const toggleLabels = document.querySelectorAll('.toggle-label');
+
+    toggleSwitch.addEventListener('click', () => {
+      toggleSwitch.classList.toggle('yearly');
+      toggleLabels.forEach(label => label.classList.toggle('active'));
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensajería - GreenDrive</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/session.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+ 
+  <header>
+  <div class="container header-container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-leaf"></i>
+      Green<span class="eco">Drive</span>
+    </a>
+    <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+    <div class="nav-container">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="buscar_viaje.html">Buscar</a></li>
+          <li><a href="publicar_viaje.html">Publicar un viaje</a></li>
+          <li><a href="suscrpciones.html">Suscripciones</a></li>
+          <li><a href="soporte.html">Soporte</a></li>
+        </ul>
+      </nav>
+      <div class="user-menu">
+  <a href="crear_cuenta.html" class="btn-secondary logged-out-only">Crear cuenta</a>
+  <a href="Inicio.html" class="btn-primary logged-out-only">Iniciar sesión</a>
+</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- Main Content -->
+<main class="container">
+  <h1 class="page-title">Mensajería</h1>
+
+  <section class="chat-section">
+    <!-- Contacts List -->
+    <div class="contacts-list">
+      <div class="contacts-header">
+        <div class="search-contacts">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Buscar conversaciones...">
+        </div>
+        <div class="contacts-tabs">
+          <div class="contacts-tab active">Todos</div>
+        </div>
+      </div>
+
+      <div class="contacts-list-container">
+        <!-- Se cargarán dinámicamente los contactos desde JS -->
+      </div>
+    </div>
+
+    <!-- Chat Window -->
+    <div class="chat-window">
+      <div class="chat-header">
+        <button class="back-to-contacts">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="chat-contact-info">
+          <div class="chat-contact-avatar">
+            <img src="/api/placeholder/40/40" alt="">
+          </div>
+          <div class="chat-contact-details">
+            <h3></h3>
+            <span class="contact-status">
+              <span class="status-indicator"></span>
+              <!-- Estado -->
+            </span>
+          </div>
+        </div>
+        <div class="chat-actions">
+          <button class="chat-action-btn" title="Información del viaje">
+            <i class="fas fa-info-circle"></i>
+          </button>
+          <button class="chat-action-btn" title="Llamada">
+            <i class="fas fa-phone"></i>
+          </button>
+          <button class="chat-action-btn" title="Más opciones">
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="chat-messages-container">
+        <!-- Se cargarán dinámicamente los mensajes -->
+      </div>
+
+      <div class="chat-input-container">
+        <form class="chat-input-form">
+          <div class="chat-input-actions">
+            <button type="button" class="chat-input-action" title="Adjuntar archivo">
+              <i class="fas fa-paperclip"></i>
+            </button>
+            <button type="button" class="chat-input-action" title="Emoji">
+              <i class="far fa-smile"></i>
+            </button>
+          </div>
+          <div class="chat-input-field">
+            <input type="text" placeholder="Escribe un mensaje...">
+          </div>
+          <button type="submit" class="chat-send-btn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trip Information Panel -->
+  <section class="trip-info-panel container" style="display: block;">
+
+    <div class="trip-info-container">
+      <div class="trip-info-header">
+        <h3 class="trip-info-title">Información del Viaje</h3>
+        <h3 class="trip-info-title">Información del Viaje</h3>
+  <button id="btnVolverReservas" class="btn-secondary" style="margin-left: 16px; cursor: pointer;">
+    <i class="fas fa-arrow-left"></i> Volver a mis reservas
+  </button>
+        <span class="trip-status confirmed">Confirmado</span>
+      </div>
+
+      <div class="trip-route">
+        <div class="route-point">
+          <div class="city"><!-- Origen --></div>
+          <div class="time"><!-- Hora salida --></div>
+        </div>
+        <div class="route-line"></div>
+        <div class="route-point">
+          <div class="city"><!-- Destino --></div>
+          <div class="time"><!-- Hora llegada --></div>
+        </div>
+      </div>
+
+      <div class="trip-details">
+        <div class="detail-item">
+          <span class="detail-label">Fecha</span>
+          <span class="detail-value"><!-- Fecha --></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Precio</span>
+          <span class="detail-value"><!-- Precio --></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Conductor</span>
+          <span class="detail-value"><!-- Conductor --></span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Plazas</span>
+          <span class="detail-value"><!-- Plazas --></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+        <div class="footer-column">
+            <div class="footer
+            <div class="footer-logo">
+                <i class="fas fa-leaf"></i>
+                GreenDrive
+            </div>
+            <p>Viajes compartidos para un planeta más sostenible. Conecta, ahorra y disfruta del trayecto.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Compañía</h4>
+            <ul>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Empleo</a></li>
+                <li><a href="#">Prensa</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Soporte</h4>
+            <ul>
+                <li><a href="#">Centro de ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Aviso legal</a></li>
+                <li><a href="#">Política de privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Síguenos</h4>
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom container">
+        © 2025 GreenDrive. Todos los derechos reservados.
+    </div>
+</footer>
+<script src="js/session.js"></script>
+<script src="js/chat.js"></script>
+</body>
+</html>
+      

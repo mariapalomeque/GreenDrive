@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicar Viaje - GreenDrive</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/session.css">
+  <link rel="stylesheet" href="css/publicar_viaje.css">
+</head>
+<body>
+  
+  <header>
+  <div class="container header-container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-leaf"></i>
+      Green<span class="eco">Drive</span>
+    </a>
+    <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+    <div class="nav-container">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="buscar_viaje.html">Buscar</a></li>
+          <li><a href="publicar_viaje.html">Publicar un viaje</a></li>
+          <li><a href="suscrpciones.html">Suscripciones</a></li>
+          <li><a href="soporte.html">Soporte</a></li>
+        </ul>
+      </nav>
+      <div class="user-menu">
+  <a href="crear_cuenta.html" class="btn-secondary logged-out-only">Crear cuenta</a>
+  <a href="Inicio.html" class="btn-primary logged-out-only">Iniciar sesión</a>
+</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+  
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Comparte tu viaje y ayuda al planeta</h1>
+      <p>Reducirás tu huella de carbono, ahorrarás costes y conectarás con viajeros con intereses similares.</p>
+    </div>
+  </section>
+
+  
+  <section class="publish-section container">
+    <div class="publish-container">
+      <div class="form-header">
+        <h2 class="form-title">Publica tu viaje en minutos</h2>
+        <p class="form-description">Completa el formulario con los detalles de tu viaje y únete a nuestra comunidad de conductores ecológicos.</p>
+      </div>
+      
+      <form id="publish-form" class="publish-form">
+        <div class="pill-selector">
+          <div class="pill-option">
+            <input type="radio" name="trip_type" id="one_way" value="one_way" checked>
+            <label for="one_way">
+              <i class="fas fa-long-arrow-alt-right pill-icon"></i>
+              <span class="pill-title">Viaje único</span>
+              <span class="pill-desc">De A a B</span>
+            </label>
+          </div>
+          <div class="pill-option">
+            <input type="radio" name="trip_type" id="round_trip" value="round_trip">
+            <label for="round_trip">
+              <i class="fas fa-exchange-alt pill-icon"></i>
+              <span class="pill-title">Viaje ida y vuelta</span>
+              <span class="pill-desc">De A a B y regreso</span>
+            </label>
+          </div>
+          <div class="pill-option">
+            <input type="radio" name="trip_type" id="regular" value="regular">
+            <label for="regular">
+              <i class="fas fa-calendar-alt pill-icon"></i>
+              <span class="pill-title">Viaje regular</span>
+              <span class="pill-desc">Se repite semanalmente</span>
+            </label>
+          </div>
+        </div>
+
+        
+
+<div id="round-trip-fields" style="display: none;">
+  <div class="form-section-title">Detalles del viaje de regreso</div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fecha_regreso">Fecha de regreso</label>
+      <div class="input-wrapper">
+        <i class="fas fa-calendar-day"></i>
+        <input type="date" id="fecha_regreso" name="fecha_regreso">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="hora_regreso">Hora de regreso</label>
+      <div class="input-wrapper">
+        <i class="fas fa-clock"></i>
+        <input type="time" id="hora_regreso" name="hora_regreso">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="regular-trip-fields" style="display: none;">
+  <div class="form-section-title">Detalles del viaje regular</div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Días de repetición</label>
+      <div class="days-selector">
+        <div class="day-option">
+          <input type="checkbox" id="day-1" name="repeat_days" value="1">
+          <label for="day-1">L</label>
+        </div>
+        <div class="day-option">
+          <input type="checkbox" id="day-2" name="repeat_days" value="2">
+          <label for="day-2">M</label>
+        </div>
+        <div class="day-option">
+          <input type="checkbox" id="day-3" name="repeat_days" value="3">
+          <label for="day-3">X</label>
+        </div>
+        <div class="day-option">
+          <input type="checkbox" id="day-4" name="repeat_days" value="4">
+          <label for="day-4">J</label>
+        </div>
+        <div class="day-option">
+          <input type="checkbox" id="day-5" name="repeat_days" value="5">
+          <label for="day-5">V</label>
+        </div>
+        <div class="day-option">
+          <input type="checkbox" id="day-6" name="repeat_days" value="6">
+          <label for="day-6">S</label>
+        </div>
+        <div class="day-option">
+          <input type="checkbox" id="day-0" name="repeat_days" value="0">
+          <label for="day-0">D</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fecha_fin">Hasta fecha</label>
+      <div class="input-wrapper">
+        <i class="fas fa-calendar-times"></i>
+        <input type="date" id="fecha_fin" name="fecha_fin">
+      </div>
+    </div>
+  </div>
+</div>
+        
+<div class="form-section-title">Ruta</div>
+<div class="form-row">
+  <div class="form-group">
+    <label for="origen">Ciudad de origen</label>
+    <div class="input-wrapper">
+      <i class="fas fa-map-marker-alt"></i>
+      <select id="origen" name="origen" required>
+        <option value="">Selecciona ciudad de origen</option>
+        <option value="Madrid">Madrid</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Valencia">Valencia</option>
+        <option value="Sevilla">Sevilla</option>
+        <option value="Zaragoza">Zaragoza</option>
+        <option value="Málaga">Málaga</option>
+        <option value="Murcia">Murcia</option>
+        <option value="Palma">Palma</option>
+        <option value="Las Palmas de Gran Canaria">Las Palmas de Gran Canaria</option>
+        <option value="Alicante">Alicante</option>
+        <option value="Bilbao">Bilbao</option>
+        <option value="Córdoba">Córdoba</option>
+        <option value="Valladolid">Valladolid</option>
+        <option value="Vigo">Vigo</option>
+        <option value="Hospitalet de Llobregat">Hospitalet de Llobregat</option>
+        <option value="Gijón">Gijón</option>
+        <option value="Vitoria-Gasteiz">Vitoria-Gasteiz</option>
+        <option value="A Coruña">A Coruña</option>
+        <option value="Elche">Elche</option>
+        <option value="Granada">Granada</option>
+        <option value="Terrassa">Terrassa</option>
+        <option value="Badalona">Badalona</option>
+        <option value="Cartagena">Cartagena</option>
+        <option value="Sabadell">Sabadell</option>
+        <option value="Jerez de la Frontera">Jerez de la Frontera</option>
+        <option value="Móstoles">Móstoles</option>
+        <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+        <option value="Pamplona">Pamplona</option>
+        <option value="Almería">Almería</option>
+        <option value="Alcalá de Henares">Alcalá de Henares</option>
+        <option value="Fuenlabrada">Fuenlabrada</option>
+        <option value="Leganés">Leganés</option>
+        <option value="San Sebastián">San Sebastián</option>
+        <option value="Getafe">Getafe</option>
+        <option value="Burgos">Burgos</option>
+        <option value="Albacete">Albacete</option>
+        <option value="Castellón de la Plana">Castellón de la Plana</option>
+        <option value="Santander">Santander</option>
+        <option value="Alcorcón">Alcorcón</option>
+        <option value="San Cristóbal de La Laguna">San Cristóbal de La Laguna</option>
+        <option value="Logroño">Logroño</option>
+        <option value="Badajoz">Badajoz</option>
+        <option value="Salamanca">Salamanca</option>
+        <option value="Huelva">Huelva</option>
+        <option value="Lleida">Lleida</option>
+        <option value="Marbella">Marbella</option>
+        <option value="Tarragona">Tarragona</option>
+        <option value="Dos Hermanas">Dos Hermanas</option>
+        <option value="Torrejón de Ardoz">Torrejón de Ardoz</option>
+        <option value="Parla">Parla</option>
+        <option value="Mataró">Mataró</option>
+        <option value="León">León</option>
+        <option value="Algeciras">Algeciras</option>
+        <option value="Santa Coloma de Gramenet">Santa Coloma de Gramenet</option>
+        <option value="Alcobendas">Alcobendas</option>
+        <option value="Cádiz">Cádiz</option>
+        <option value="Jaén">Jaén</option>
+        <option value="Reus">Reus</option>
+        <option value="Ourense">Ourense</option>
+        <option value="Roquetas de Mar">Roquetas de Mar</option>
+        <option value="Girona">Girona</option>
+        <option value="Telde">Telde</option>
+        <option value="Barakaldo">Barakaldo</option>
+        <option value="Santiago de Compostela">Santiago de Compostela</option>
+        <option value="Lugo">Lugo</option>
+        <option value="Cáceres">Cáceres</option>
+        <option value="San Fernando">San Fernando</option>
+        <option value="Cornellà de Llobregat">Cornellà de Llobregat</option>
+        <option value="Avilés">Avilés</option>
+        <option value="Talavera de la Reina">Talavera de la Reina</option>
+        <option value="Torrevieja">Torrevieja</option>
+        <option value="Orihuela">Orihuela</option>
+        <option value="Toledo">Toledo</option>
+        <option value="El Puerto de Santa María">El Puerto de Santa María</option>
+        <option value="Pontevedra">Pontevedra</option>
+        <option value="Rubí">Rubí</option>
+        <option value="Alcalá de Guadaíra">Alcalá de Guadaíra</option>
+        <option value="Coslada">Coslada</option>
+        <option value="Ferrol">Ferrol</option>
+        <option value="Arrecife">Arrecife</option>
+        <option value="Chiclana de la Frontera">Chiclana de la Frontera</option>
+        <option value="Manresa">Manresa</option>
+        <option value="Ciudad Real">Ciudad Real</option>
+        <option value="Benidorm">Benidorm</option>
+        <option value="Sanlúcar de Barrameda">Sanlúcar de Barrameda</option>
+        <option value="Estepona">Estepona</option>
+        <option value="Zamora">Zamora</option>
+        <option value="Fuengirola">Fuengirola</option>
+        <option value="Palencia">Palencia</option>
+        <option value="Ponferrada">Ponferrada</option>
+        <option value="Ávila">Ávila</option>
+        <option value="Cuenca">Cuenca</option>
+        <option value="Elda">Elda</option>
+        <option value="Mollet del Vallès">Mollet del Vallès</option>
+        <option value="Segovia">Segovia</option>
+        <option value="Irún">Irún</option>
+        <option value="Gandía">Gandía</option>
+        <option value="San Vicente del Raspeig">San Vicente del Raspeig</option>
+        <option value="Valdemoro">Valdemoro</option>
+        <option value="Majadahonda">Majadahonda</option>
+        <option value="Motril">Motril</option>
+        <option value="Torremolinos">Torremolinos</option>
+        <option value="Linares">Linares</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="destino">Ciudad de destino</label>
+    <div class="input-wrapper">
+      <i class="fas fa-map-pin"></i>
+      <select id="destino" name="destino" required>
+        <option value="">Selecciona ciudad de origen</option>
+        <option value="Madrid">Madrid</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Valencia">Valencia</option>
+        <option value="Sevilla">Sevilla</option>
+        <option value="Zaragoza">Zaragoza</option>
+        <option value="Málaga">Málaga</option>
+        <option value="Murcia">Murcia</option>
+        <option value="Palma">Palma</option>
+        <option value="Las Palmas de Gran Canaria">Las Palmas de Gran Canaria</option>
+        <option value="Alicante">Alicante</option>
+        <option value="Bilbao">Bilbao</option>
+        <option value="Córdoba">Córdoba</option>
+        <option value="Valladolid">Valladolid</option>
+        <option value="Vigo">Vigo</option>
+        <option value="Hospitalet de Llobregat">Hospitalet de Llobregat</option>
+        <option value="Gijón">Gijón</option>
+        <option value="Vitoria-Gasteiz">Vitoria-Gasteiz</option>
+        <option value="A Coruña">A Coruña</option>
+        <option value="Elche">Elche</option>
+        <option value="Granada">Granada</option>
+        <option value="Terrassa">Terrassa</option>
+        <option value="Badalona">Badalona</option>
+        <option value="Cartagena">Cartagena</option>
+        <option value="Sabadell">Sabadell</option>
+        <option value="Jerez de la Frontera">Jerez de la Frontera</option>
+        <option value="Móstoles">Móstoles</option>
+        <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+        <option value="Pamplona">Pamplona</option>
+        <option value="Almería">Almería</option>
+        <option value="Alcalá de Henares">Alcalá de Henares</option>
+        <option value="Fuenlabrada">Fuenlabrada</option>
+        <option value="Leganés">Leganés</option>
+        <option value="San Sebastián">San Sebastián</option>
+        <option value="Getafe">Getafe</option>
+        <option value="Burgos">Burgos</option>
+        <option value="Albacete">Albacete</option>
+        <option value="Castellón de la Plana">Castellón de la Plana</option>
+        <option value="Santander">Santander</option>
+        <option value="Alcorcón">Alcorcón</option>
+        <option value="San Cristóbal de La Laguna">San Cristóbal de La Laguna</option>
+        <option value="Logroño">Logroño</option>
+        <option value="Badajoz">Badajoz</option>
+        <option value="Salamanca">Salamanca</option>
+        <option value="Huelva">Huelva</option>
+        <option value="Lleida">Lleida</option>
+        <option value="Marbella">Marbella</option>
+        <option value="Tarragona">Tarragona</option>
+        <option value="Dos Hermanas">Dos Hermanas</option>
+        <option value="Torrejón de Ardoz">Torrejón de Ardoz</option>
+        <option value="Parla">Parla</option>
+        <option value="Mataró">Mataró</option>
+        <option value="León">León</option>
+        <option value="Algeciras">Algeciras</option>
+        <option value="Santa Coloma de Gramenet">Santa Coloma de Gramenet</option>
+        <option value="Alcobendas">Alcobendas</option>
+        <option value="Cádiz">Cádiz</option>
+        <option value="Jaén">Jaén</option>
+        <option value="Reus">Reus</option>
+        <option value="Ourense">Ourense</option>
+        <option value="Roquetas de Mar">Roquetas de Mar</option>
+        <option value="Girona">Girona</option>
+        <option value="Telde">Telde</option>
+        <option value="Barakaldo">Barakaldo</option>
+        <option value="Santiago de Compostela">Santiago de Compostela</option>
+        <option value="Lugo">Lugo</option>
+        <option value="Cáceres">Cáceres</option>
+        <option value="San Fernando">San Fernando</option>
+        <option value="Cornellà de Llobregat">Cornellà de Llobregat</option>
+        <option value="Avilés">Avilés</option>
+        <option value="Talavera de la Reina">Talavera de la Reina</option>
+        <option value="Torrevieja">Torrevieja</option>
+        <option value="Orihuela">Orihuela</option>
+        <option value="Toledo">Toledo</option>
+        <option value="El Puerto de Santa María">El Puerto de Santa María</option>
+        <option value="Pontevedra">Pontevedra</option>
+        <option value="Rubí">Rubí</option>
+        <option value="Alcalá de Guadaíra">Alcalá de Guadaíra</option>
+        <option value="Coslada">Coslada</option>
+        <option value="Ferrol">Ferrol</option>
+        <option value="Arrecife">Arrecife</option>
+        <option value="Chiclana de la Frontera">Chiclana de la Frontera</option>
+        <option value="Manresa">Manresa</option>
+        <option value="Ciudad Real">Ciudad Real</option>
+        <option value="Benidorm">Benidorm</option>
+        <option value="Sanlúcar de Barrameda">Sanlúcar de Barrameda</option>
+        <option value="Estepona">Estepona</option>
+        <option value="Zamora">Zamora</option>
+        <option value="Fuengirola">Fuengirola</option>
+        <option value="Palencia">Palencia</option>
+        <option value="Ponferrada">Ponferrada</option>
+        <option value="Ávila">Ávila</option>
+        <option value="Cuenca">Cuenca</option>
+        <option value="Elda">Elda</option>
+        <option value="Mollet del Vallès">Mollet del Vallès</option>
+        <option value="Segovia">Segovia</option>
+        <option value="Irún">Irún</option>
+        <option value="Gandía">Gandía</option>
+        <option value="San Vicente del Raspeig">San Vicente del Raspeig</option>
+        <option value="Valdemoro">Valdemoro</option>
+        <option value="Majadahonda">Majadahonda</option>
+        <option value="Motril">Motril</option>
+        <option value="Torremolinos">Torremolinos</option>
+        <option value="Linares">Linares</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="form-section-title">Detalles del viaje</div>
+<div class="form-row">
+  <div class="form-group">
+    <label for="fecha_salida">Fecha de salida</label>
+    <div class="input-wrapper">
+      <i class="fas fa-calendar-day"></i>
+      <input type="date" id="fecha_salida" name="fecha_salida" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="hora_salida">Hora de salida</label>
+    <div class="input-wrapper">
+      <i class="fas fa-clock"></i>
+      <input type="time" id="hora_salida" name="hora_salida" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="plazas">Plazas disponibles</label>
+    <div class="input-wrapper">
+      <i class="fas fa-users"></i>
+      <select id="plazas" name="plazas" required>
+        <option value="1">1 plaza</option>
+        <option value="2">2 plazas</option>
+        <option value="3">3 plazas</option>
+        <option value="4">4 plazas</option>
+      </select>
+    </div>
+  </div>
+          <div class="form-group">
+            <label for="precio">Precio por pasajero (€)</label>
+            <div class="input-wrapper">
+              <i class="fas fa-euro-sign"></i>
+              <input type="number" id="precio" name="precio" step="0.01" min="0" placeholder="Ej: 15" required>
+            </div>
+          </div>
+        </div>
+      
+        <div class="form-section-title">Comentarios adicionales</div>
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="fas fa-comment-alt"></i>
+            <textarea id="comentarios" name="comentarios" placeholder="Ej: Límite de equipaje, mascotas, paradas..."></textarea>
+          </div>
+        </div>
+      
+        <div class="form-actions">
+          <button type="submit" class="btn-primary btn-lg btn-with-icon">
+            <i class="fas fa-check"></i> Publicar viaje
+          </button>
+        </div>
+        
+        <div id="resultado" style="margin-top: 1em; color: #10b981;"></div>
+      </form>
+    </div>
+  </section>
+  
+<div id="modal-container" class="modal-container">
+  
+  <div id="success-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <div class="modal-icon success">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h2>¡Viaje publicado con éxito!</h2>
+      <p>Tu viaje ha sido publicado correctamente. Ahora está disponible para que otros usuarios lo reserven.</p>
+      <div class="modal-actions">
+        <button id="success-ok" class="btn-primary">Aceptar</button>
+        <a href="mis_viajes.html" class="btn-secondary">Ver mis viajes</a>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div id="error-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <div class="modal-icon error">
+        <i class="fas fa-exclamation-circle"></i>
+      </div>
+      <h2>Error al publicar el viaje</h2>
+      <p id="error-message">Ha ocurrido un error. Inténtalo de nuevo.</p>
+      <div class="modal-actions">
+        <button id="error-ok" class="btn-primary">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <footer>
+    <div class="container footer-grid">
+        <div class="footer-column">
+            <div class="footer
+            <div class="footer-logo">
+                <i class="fas fa-leaf"></i>
+                GreenDrive
+            </div>
+            <p>Viajes compartidos para un planeta más sostenible. Conecta, ahorra y disfruta del trayecto.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Compañía</h4>
+            <ul>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Empleo</a></li>
+                <li><a href="#">Prensa</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Soporte</h4>
+            <ul>
+                <li><a href="#">Centro de ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Aviso legal</a></li>
+                <li><a href="#">Política de privacidad</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Síguenos</h4>
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom container">
+        © 2025 GreenDrive. Todos los derechos reservados.
+    </div>
+</footer>
+  <script src="js/session.js"></script>
+  <script>
+    // FAQ Toggle script
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        question.classList.toggle('active');
+        question.nextElementSibling.classList.toggle('active');
+      });
+    });
+  </script>
+  <script src="js/session.js"></script>
+  <script src="js/publicar_viaje.js"></script>
+</body>
+</html>

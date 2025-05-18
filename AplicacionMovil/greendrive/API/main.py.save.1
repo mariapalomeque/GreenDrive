@@ -1,0 +1,330 @@
+from fastapi import FastAPI, HTTPException, Body, Query
+from typing import List
+from fastapi.middleware.cors import CORSMiddleware
+from schemas.schemas import *
+from consultas.consultas import *
+from passlib.context import CryptContext 
+
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+def get_password_hash(password: str) -> str:
+    return pwd_context.hash(password)
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    return pwd_context.verify(plain_password, hashed_password)
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+@app.get("/usuarios/", response_model=List[Usuario])
+async def obtener_usuarios():
+    result = read_usuarios()
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=404, detail=result.get("message"))
+    return result
+
+@app.get("/usuarios/{id_usuario}", response_model=Usuario)
+async def obtener_usuario(id_usuario: int):
+    result = get_usuario_by_id(id_usuario)
+    if not isinstance(result, dict) or "ID_Usuario" not in result:
+        raise HTTPException(status_code=404, detail=result.get("message", "Usuario no encontrado"))
+    return result
+
+
+@app.get("/usuarios/email/{email}", response_model=Usuario)
+async def obtener_usuario_por_email(email: str):
+    result = get_usuario_by_email(email)
+    if not result or (isinstance(result, dict) and result.get("status") != 1):
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+    return result
+
+
+
+@app.post("/usuarios/add")
+async def add_usuario(new_usuario: UsuarioCreate = Body(...)):
+    result = create_usuario(new_usuario)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Usuario añadido correctamente"}
+
+@app.put("/usuarios/update/{id_usuario}")
+async def update_usuario_endpoint(id_usuario: int, updated_usuario: UsuarioCreate = Body(...)):
+    result = update_usuario(id_usuario, updated_usuario.dict())
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Usuario actualizado correctamente"}
+
+@app.delete("/usuarios/delete/{id_usuario}")
+async def delete_usuario_endpoint(id_usuario: int):
+    result = delete_usuario(id_usuario)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Usuario eliminado correctamente"}
+
+
+@app.get("/vehiculos/", response_model=List[Vehiculo])
+async def obtener_vehiculos():
+    result = read_vehiculos()
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=404, detail=result.get("message"))
+    return result
+
+@app.get("/vehiculos/{id_vehiculo}", response_model=Vehiculo)
+async def obtener_vehiculo(id_vehiculo: int):
+    result = get_vehiculo_by_id(id_vehiculo)
+    if not isinstance(result, dict) or "ID_Vehiculo" not in result:
+        raise HTTPException(status_code=404, detail=result.get("message"))
+    return result
+
+@app.post("/vehiculos/add")
+async def add_vehiculo(new_vehiculo: VehiculoCreate = Body(...)):
+    result = create_vehiculo(new_vehiculo)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message", "Vehículo no encontrado"))
+    return {"message": "Vehículo añadido correctamente"}
+
+@app.put("/vehiculos/update/{id_vehiculo}")
+async def update_vehiculo_endpoint(id_vehiculo: int, updated_vehiculo: VehiculoCreate = Body(...)):
+    result = update_vehiculo(id_vehiculo, updated_vehiculo.dict())
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Vehículo actualizado correctamente"}
+
+@app.post("/usuarios/add")
+async def add_usuario(new_usuario: UsuarioCreate = Body(...)):
+    result = create_usuario(new_usuario)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Usuario añadido correctamente"}
+
+@app.put("/usuarios/update/{id_usuario}")
+async def update_usuario_endpoint(id_usuario: int, updated_usuario: UsuarioCreate = Body(...)):
+    result = update_usuario(id_usuario, updated_usuario.dict())
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Usuario actualizado correctamente"}
+
+@app.delete("/usuarios/delete/{id_usuario}")
+async def delete_usuario_endpoint(id_usuario: int):
+    result = delete_usuario(id_usuario)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Usuario eliminado correctamente"}
+
+
+@app.get("/vehiculos/", response_model=List[Vehiculo])
+async def obtener_vehiculos():
+    result = read_vehiculos()
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=404, detail=result.get("message"))
+    return result
+
+@app.get("/vehiculos/{id_vehiculo}", response_model=Vehiculo)
+async def obtener_vehiculo(id_vehiculo: int):
+    result = get_vehiculo_by_id(id_vehiculo)
+    if not isinstance(result, dict) or "ID_Vehiculo" not in result:
+        raise HTTPException(status_code=404, detail=result.get("message"))
+    return result
+
+@app.post("/vehiculos/add")
+async def add_vehiculo(new_vehiculo: VehiculoCreate = Body(...)):
+    result = create_vehiculo(new_vehiculo)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message", "Vehículo no encontrado"))
+    return {"message": "Vehículo añadido correctamente"}
+
+@app.put("/vehiculos/update/{id_vehiculo}")
+async def update_vehiculo_endpoint(id_vehiculo: int, updated_vehiculo: VehiculoCreate = Body(...)):
+    result = update_vehiculo(id_vehiculo, updated_vehiculo.dict())
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Vehículo actualizado correctamente"}
+@app.delete("/vehiculos/delete/{id_vehiculo}")
+async def delete_vehiculo_endpoint(id_vehiculo: int):
+    result = delete_vehiculo(id_vehiculo)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Vehículo eliminado correctamente"}
+
+@app.get("/viajes/", response_model=List[Viaje])
+async def obtener_viajes():
+    result = read_viajes()
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=404, detail=result.get("message"))
+    return result
+
+
+@app.get("/viajes/buscar", response_model=List[Viaje])
+async def buscar_viajes(origen: str = Query(...), destino: str = Query(...), fecha: str = Query(...)):
+    try:
+        query = """
+            SELECT ID_Viaje, ID_Usuario, Origen, Destino, Fecha_Hora_Salida, Plazas_disponibles, Coste
+            FROM public.Viajes
+            WHERE Origen ILIKE %s AND Destino ILIKE %s AND TO_CHAR(Fecha_Hora_Salida, 'YYYY-MM-DD') = %s
+        """
+        with conn.cursor() as cur:
+            cur.execute(query, (f"%{origen}%", f"%{destino}%", fecha))
+            rows = cur.fetchall()
+        
+        viajes = [
+            {
+                "ID_Viaje": row[0],
+                "ID_Usuario": row[1],
+                "Origen": row[2],
+                "Destino": row[3],
+                "Fecha_Hora_Salida": row[4],
+                "Plazas_disponibles": row[5],
+                "Coste": float(row[6])
+            }
+            for row in rows
+        ]
+
+        return viajes
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/viajes/{id_viaje}", response_model=None)  # Quitar response_model para mayor flexibilidad
+async def obtener_viaje(id_viaje: int):
+    print(f"Solicitando viaje con ID: {id_viaje}")  # Log para depuración
+    result = get_viaje_by_id(id_viaje)
+    print(f"Resultado obtenido: {result}")  # Log para depuración
+    
+    # Comprobar si es un error
+    if isinstance(result, dict) and "status" in result and result.get("status") != 1:
+        raise HTTPException(status_code=404, detail=f"Viaje con ID {id_viaje} no encontrado: {result.get('message')}")
+    
+    # Datos por defecto en caso de que el viaje no exista
+    if result is None:
+        return {
+            "ID_Viaje": id_viaje,
+            "ID_Usuario": 1,
+            "Origen": f"Origen del viaje {id_viaje}",
+            "Destino": f"Destino del viaje {id_viaje}",
+            "Fecha_Hora_Salida": "2025-05-01T12:00:00",
+            "Plazas_disponibles": 2,
+            "Coste": 25.00
+        }
+    
+    return result
+
+@app.post("/viajes/add")
+async def add_viaje(new_viaje: ViajeCreate = Body(...)):
+    result = create_viaje(new_viaje)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Viaje añadido correctamente"}
+
+@app.put("/viajes/update/{id_viaje}")
+async def update_viaje_endpoint(id_viaje: int, updated_viaje: ViajeCreate = Body(...)):
+    result = update_viaje(id_viaje, updated_viaje.dict())
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Viaje actualizado correctamente"}
+
+@app.delete("/viajes/delete/{id_viaje}")
+async def delete_viaje_endpoint(id_viaje: int):
+    result = delete_viaje(id_viaje)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Viaje eliminado correctamente"}
+
+
+@app.post("/register")
+async def register(new_usuario: UsuarioCreate = Body(...)):
+    hashed_password = get_password_hash(new_usuario.Contrasena)
+    new_usuario.Contrasena = hashed_password
+    
+    result = create_usuario(new_usuario)
+    if result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    
+    return {"message": "Usuario creado correctamente"}
+
+
+# Endpoint de inicio de sesión (login)
+@app.post("/login")
+async def login(usuario: UsuarioLogin = Body(...)):
+    user = get_usuario_by_email(usuario.Email)
+    if not user:
+        raise HTTPException(status_code=400, detail="Email o contraseña incorrectos")
+    if not verify_password(usuario.Contrasena, user["Contrasena"]):
+        raise HTTPException(status_code=400, detail="Email o contraseña incorrectos")
+    return {"message": "Inicio de sesión correcto"}
+
+
+@app.post("/reservas/add")
+async def add_reserva(new_reserva: ReservaCreate = Body(...)):
+    viaje = get_viaje_by_id(new_reserva.ID_Viaje)
+    if isinstance(viaje, dict) and viaje.get("status") != 1:
+        if not viaje:
+            raise HTTPException(status_code=404, detail="Viaje no encontrado")
+    
+    # Verificar que hay plazas disponibles
+    if viaje["Plazas_disponibles"] <= 0:
+        raise HTTPException(status_code=400, detail="No hay plazas disponibles para este viaje")
+    
+    # Crear la reserva
+    result = create_reserva(new_reserva)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    
+    # Actualizar el número de plazas disponibles en el viaje
+    viaje_actualizado = {
+        "ID_Usuario": viaje["ID_Usuario"],
+        "Origen": viaje["Origen"],
+        "Destino": viaje["Destino"],
+        "Fecha_Hora_Salida": viaje["Fecha_Hora_Salida"],
+        "Plazas_disponibles": viaje["Plazas_disponibles"] - 1,
+        "Coste": viaje["Coste"]
+    }
+    
+    update_result = update_viaje(new_reserva.ID_Viaje, viaje_actualizado)
+    if isinstance(update_result, dict) and update_result.get("status") != 1:
+        # Si falla la actualización, intentamos eliminar la reserva
+        delete_reserva(result.get("ID_Reserva"))
+        raise HTTPException(status_code=500, detail="Error al actualizar plazas disponibles")
+    
+    return {"message": "Reserva creada correctamente", "ID_Reserva": result.get("ID_Reserva")}
+
+@app.get("/reservas/usuario/{id_usuario}", response_model=List[Reserva])
+async def obtener_reservas_usuario(id_usuario: int):
+    result = get_reservas_by_usuario(id_usuario)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=404, detail=result.get("message"))
+    return result
+
+
+@app.delete("/reservas/delete/{id_reserva}")
+async def delete_reserva_endpoint(id_reserva: int):
+    result = delete_reserva(id_reserva)
+    if isinstance(result, dict) and result.get("status") != 1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return {"message": "Reserva eliminada correctamente"}
+
+
+
+@app.post("/mensajes/", response_model=Mensaje)
+async def enviar_mensaje(new_mensaje: MensajeCreate = Body(...)):
+    result = create_mensaje(new_mensaje)
+    if isinstance(result, dict) and result.get("status") == -1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return result
+
+@app.get("/mensajes/{remitente_id}/{destinatario_id}", response_model=List[Mensaje])
+async def obtener_mensajes(remitente_id: int, destinatario_id: int):
+    result = get_mensajes_entre_usuarios(remitente_id, destinatario_id)
+    if isinstance(result, dict) and result.get("status") == -1:
+        raise HTTPException(status_code=500, detail=result.get("message"))
+    return result
